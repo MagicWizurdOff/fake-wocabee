@@ -1,0 +1,715 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1.0,user-scalable=0'"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="shortcut icon" href="images/favicon.ico" />
+    <title>WocaBee</title>
+    <link href="css/list/bootstrap.min.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat"
+      rel="stylesheet"
+    />
+    <link href="css/list/wocabee.css" rel="stylesheet" />
+    <link href="css/list/wocabee_dark.css" rel="stylesheet" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Josefin+Sans|Montserrat|Oswald|PT+Sans|Raleway|Roboto"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/list/all.min.css" />
+    <style>
+      @media only screen and (max-width: 768px) {
+        .table-s {
+          font-size: 0.75em;
+        }
+        .table-l {
+          font-size: 0.85em;
+        }
+      }
+      .table td {
+        padding: 0.3rem;
+        border-top: 0px;
+      }
+      #tbody td {
+        vertical-align: middle;
+      }
+      table td {
+        border-top: 0px solid #dee2e6;
+      }
+      .actionBtn {
+        width: 80px;
+        display: inline-block;
+      }
+      .btn-mic {
+        color: black;
+        background-color: white;
+        border-color: #979797;
+      }
+      #mainHexagon {
+        cursor: pointer;
+      }
+      #hexaWrapper {
+        position: relative;
+        top: 0px;
+        width: 404px;
+      }
+      .hexaCenter {
+        left: 50%;
+        -webkit-transform: translate(-50%);
+        -ms-transform: translate(-50%);
+        transform: translate(-50%);
+      }
+      /*===== The CSS =====*/
+      .hexaProgress {
+        width: 150px;
+        height: 180px;
+      }
+      .hexaProgress .hexaTrack,
+      .hexaProgress .hexaFill {
+        fill: rgba(0, 0, 0, 0);
+        stroke-width: 25;
+        transform: translate(290px, 800px) rotate(-120deg);
+      }
+      .hexaCompleted {
+        fill: rgb(251 168 40);
+        stroke-width: 25;
+        transform: translate(290px, 800px) rotate(-120deg);
+        display: none;
+      }
+      .hexaProgress .hexaTrack {
+        stroke: rgb(56, 71, 83);
+      }
+      .hexaProgress .hexaFill {
+        stroke: rgb(255, 255, 255);
+        stroke-linecap: round;
+        stroke-dasharray: 2160;
+        stroke-dashoffset: 2160;
+        transition: stroke-dashoffset 1s;
+      }
+      .hexaProgress.hexaOrange .hexaFill {
+        stroke: rgb(251, 168, 40);
+      }
+      .hexaProgress .hexaValue,
+      .hexaProgress .hexaText,
+      .hexaSubtitle {
+        /*font-family: 'Open Sans';*/
+        fill: white; /*rgb(0, 0, 0);*/
+        text-anchor: middle;
+      }
+      .hexaProgress .hexaValue,
+      .hexaSubtitle {
+        font-size: 10em;
+      }
+      .hexaProgress .hexaText {
+        /*font-size: 120px;*/
+      }
+      .hexaNoselect {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        cursor: default;
+      }
+    </style>
+    <script src="js/list/jquery-3.2.1.min.js"></script>
+    <script src="js/list/class.js"></script>
+  </head>
+  <body>
+    <div class="container text-center col-lg-6 col-md-8 col-xs-12">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a class="inactive-breadcrumb">
+              <i class="fas fa-home home-breadcrumb"></i>
+            </a>
+          </li>
+          <li class="breadcrumb-item">SEXTA 25/26 - JAN</li>
+        </ol>
+      </nav>
+      <style>
+        .inactive-breadcrumb {
+          cursor: pointer;
+          font-weight: bold;
+        }
+        .underline-breadcrumb:hover {
+          text-decoration: underline !important;
+        }
+        .breadcrumb {
+          padding: 0;
+          margin: 0 0 -10px 0;
+          background-color: transparent;
+          font-size: 1.05em;
+          line-height: 1.7;
+        }
+        .home-breadcrumb {
+          width: 23px;
+          height: 23px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          transition: all 200ms;
+          text-decoration: none !important;
+        }
+        .home-breadcrumb:hover {
+          font-size: 1.4em;
+        }
+        @media (max-width: 576px) {
+          .breadcrumb {
+            font-size: 0.9em;
+            line-height: 1.8;
+            margin: 0 0 -13px 0;
+          }
+        }
+        @media (max-width: 350px) {
+          .breadcrumb {
+            font-size: 0.8em;
+            line-height: 2;
+            margin: 0 0 -14px 0;
+          }
+        }
+      </style>
+      <hr />
+      <div class="">
+        <div class="form-group">
+          <a href="#">
+            <div style="text-align: left">
+              <div class="btn btn-block btn-info btn-lg">
+                <i
+                  class="fas fa-calendar-check fa-lg leftIcon"
+                  style="margin-right: 5px"
+                ></i>
+                Slovíčko dne
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="form-group">
+          <div class="fa-beat" style="--fa-beat-scale: 1.06">
+            <a href="#">
+              <div class="btn btn-warning btn-block btn-lg" style="">
+                <i class="fas fa-comments leftIcon"></i> Konverzace BeeTalk<sup
+                  >TM</sup
+                >
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+      <hr />
+      <div class="btn btn-block btn-wocagrey btn-lg" id="beeDaysBtn">
+        <span style="float: left">0</span> BeeDays
+        <i id="beeDaysChevron" class="fa-solid fa-chevron-down rightIcon"></i>
+      </div>
+      <div
+        id="beeDaysWrapper"
+        style="display: none; border: 1px solid #c1c1c1; border-radius: 6px"
+      >
+        <div style="padding-top: 10px">
+          <div>
+            Nahraj denně alespoň <strong>200 WocaPoints</strong> a získej tak co
+            nejvíce <strong>BeeDays</strong> (dní) za sebou!<br />Pokud některý
+            den vynecháš, počítadlo BeeDays se vynuluje.
+          </div>
+          <div>
+            Za dnes máš <strong>0 WocaPoints</strong>. Denní cíl je tak splněný
+            na <strong>0 %</strong>.
+          </div>
+          <div id="hexaWrapper" class="hexaCenter">
+            <svg
+              id="mainHexagon"
+              class="hexaProgress hexaOrange hexaNoselect"
+              data-progress="0"
+              x="0px"
+              y="0px"
+              viewBox="0 0 776 628"
+            >
+              <path
+                class="hexaTrack"
+                d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
+              ></path>
+              <path
+                class="hexaFill"
+                d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
+              ></path>
+              <path
+                class="hexaCompleted"
+                d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
+              ></path>
+              <text class="hexaValue" x="50%" y="60%"></text>
+            </svg>
+          </div>
+          <div style="padding-bottom: 10px">
+            Tvůj aktuální počet <strong>BeeDays</strong> v této třídě:<b>
+              <kbd class="beeDaysCounter" style="font-size: 1.3em"
+                ><i class="fa-regular fa-calendar-check"></i> 0</kbd
+              ></b
+            >
+          </div>
+        </div>
+      </div>
+      <hr />
+      <div class="form-group" id="myStoriesFormWrapper">
+        <a href="#">
+          <div class="btn btn-wocaorange btn-lg btn-block" id="myStoriesBtn">
+            <i class="fa-solid fa-book"></i> Příběhy (10)
+            <i class="fas fa-spin fa-lg fa-star" style="cursor: pointer"></i>
+          </div>
+        </a>
+      </div>
+      <hr />
+      <div id="standardView">
+        <div class="row mt-4 mb-2">
+          <div class="col">
+            <h3><b>Seznam balíků</b></h3>
+          </div>
+          <div class="col">
+            <input
+              id="packageNameFilter"
+              type="text"
+              placeholder="Filtr"
+              class="form-control"
+            />
+          </div>
+        </div>
+        <table class="table table-striped table-s">
+          <thead>
+            <tr>
+              <th>Název</th>
+              <th>Termín</th>
+              <th>Stav</th>
+              <th>Možnosti</th>
+            </tr>
+          </thead>
+          <tbody>
+            <input
+              id="now_timestamp"
+              style="display: none"
+              value="1781790930000"
+            />
+            <tr class="pTableRow" style="">
+              <td
+                style="text-align: left; padding-left:10px; vertical-align:middle; /*position: relative"
+              >
+                <div class="package-name-wrapper">
+                  <a class="intro-icon" href="#">
+                    <i
+                      class="fas fa-info-circle fa-2x text-success"
+                      style="float: left; padding-right: 5px"
+                    ></i
+                  ></a>
+                  <span class="package-name">Lekce 36/1 (20)</span>
+                </div>
+              </td>
+              <td style="vertical-align: middle">
+                <b class="package-date"
+                  >14.06.<span class="time"> 22:00</span></b
+                >
+              </td>
+              <td style="vertical-align: middle; white-space: nowrap">
+                <div class="circles-wrapper">
+                  <i class="fa-solid fa-circle-check progress-icon"></i
+                  ><i class="fa-solid fa-circle-check progress-icon"></i
+                  ><i class="fa-solid fa-circle progress-icon" style="color: gray;"></i>
+                </div>
+              </td>
+              <td>
+                <a href="play.html"
+                  ><span
+                    class="actionBtn btn btn-success btn-block"
+                    id="run"
+                    ><i class="fa-solid fa-play fa-2x text-white"></i></i
+                    ><span class="studentBtn" style="display: none">
+                      procvičit</span
+                    ></span
+                  ></a
+                ><br />
+
+                <a href="#">
+                  <div
+                    class="actionBtn btn btn-mic btn-block"
+                    style="margin-top: 5px; position: relative"
+                  >
+                    <i class="fas fa-lg fa-microphone text-danger"></i
+                    ><span
+                      style="
+                        font-weight: bold;
+                        font-size: 0.7em;
+                        position: absolute;
+                        padding-left: 1px;
+                        margin-top: -7px;
+                      "
+                      >0%</span
+                    >
+                  </div>
+                </a>
+              </td>
+            </tr>
+            <tr class="pTableRow" style="">
+              <td
+                style="text-align: left; padding-left:10px; vertical-align:middle; /*position: relative"
+              >
+                <div class="package-name-wrapper">
+                  <a class="intro-icon" href="#">
+                    <i
+                      class="fas fa-info-circle fa-2x text-success"
+                      style="float: left; padding-right: 5px"
+                    ></i
+                  ></a>
+                  <span class="package-name">Perfektum 4</span>
+                </div>
+              </td>
+              <td style="vertical-align: middle">
+                <b class="package-date"
+                  >08.06.<span class="time"> 22:00</span></b
+                >
+              </td>
+              <td style="vertical-align: middle; white-space: nowrap">
+                <div class="circles-wrapper">
+                  <i class="fa-solid fa-circle-check progress-icon"></i
+                  ><i class="fa-solid fa-circle-check progress-icon"></i
+                  ><i class="fa-solid fa-circle-check progress-icon"></i>
+                </div>
+              </td>
+              <td>
+                <a href="#"
+                  ><span
+                    class="actionBtn btn btn-primary btn-block"
+                    id="btnRun1806744"
+                    ><i class="fa-solid fa-gamepad fa-lg icon"></i
+                    ><span class="studentBtn" style="display: none">
+                      procvičit</span
+                    ></span
+                  ></a
+                ><br />
+                <a href="#">
+                  <div
+                    class="actionBtn btn btn-mic btn-block"
+                    style="margin-top: 5px; position: relative"
+                  >
+                    <i class="fas fa-lg fa-microphone text-danger"></i
+                    ><span
+                      style="
+                        font-weight: bold;
+                        font-size: 0.7em;
+                        position: absolute;
+                        padding-left: 1px;
+                        margin-top: -7px;
+                      "
+                      >0%</span
+                    >
+                  </div>
+                </a>
+              </td>
+            </tr>
+            <tr class="pTableRow" style="">
+              <td
+                style="text-align: left; padding-left:10px; vertical-align:middle; /*position: relative"
+              >
+                <div class="package-name-wrapper">
+                  <a class="intro-icon" href="#">
+                    <i
+                      class="fas fa-info-circle fa-2x text-success"
+                      style="float: left; padding-right: 5px"
+                    ></i
+                  ></a>
+                  <span class="package-name">Lekce 36/2</span>
+                </div>
+              </td>
+              <td style="vertical-align: middle">
+                <b class="package-date"
+                  >31.05.<span class="time"> 22:00</span></b
+                >
+              </td>
+              <td style="vertical-align: middle; white-space: nowrap">
+                <div class="circles-wrapper">
+                  <i class="fa-solid fa-circle-check progress-icon"></i
+                  ><i class="fa-solid fa-circle-check progress-icon"></i
+                  ><i class="fa-solid fa-circle-check progress-icon"></i>
+                </div>
+              </td>
+              <td>
+                <a href="#"
+                  ><span
+                    class="actionBtn btn btn-primary btn-block"
+                    id="btnRun1801107"
+                    ><i class="fa-solid fa-gamepad fa-lg icon"></i
+                    ><span class="studentBtn" style="display: none">
+                      procvičit</span
+                    ></span
+                  ></a
+                ><br />
+                <a href="#">
+                  <div
+                    class="actionBtn btn btn-mic btn-block"
+                    style="margin-top: 5px; position: relative"
+                  >
+                    <i class="fas fa-lg fa-microphone text-danger"></i
+                    ><span
+                      style="
+                        font-weight: bold;
+                        font-size: 0.7em;
+                        position: absolute;
+                        padding-left: 1px;
+                        margin-top: -7px;
+                      "
+                      >0%</span
+                    >
+                  </div>
+                </a>
+              </td>
+            </tr>
+            <tr class="pTableRow" style="">
+              <td
+                style="text-align: left; padding-left:10px; vertical-align:middle; /*position: relative"
+              >
+                <div class="package-name-wrapper">
+                  <a class="intro-icon" href="#">
+                    <i
+                      class="fas fa-info-circle fa-2x text-success"
+                      style="float: left; padding-right: 5px"
+                    ></i
+                  ></a>
+                  <span class="package-name">Lekce 35/Umweltschutz</span>
+                </div>
+              </td>
+              <td style="vertical-align: middle">
+                <b class="package-date"
+                  >31.05.<span class="time"> 22:00</span></b
+                >
+              </td>
+              <td style="vertical-align: middle; white-space: nowrap">
+                <div class="circles-wrapper">
+                  <i class="fa-solid fa-circle-check progress-icon"></i
+                  ><i class="fa-solid fa-circle-check progress-icon"></i
+                  ><i class="fa-solid fa-circle-check progress-icon"></i>
+                </div>
+              </td>
+              <td>
+                <a href="#"
+                  ><span
+                    class="actionBtn btn btn-primary btn-block"
+                    id="btnRun1782502"
+                    ><i class="fa-solid fa-gamepad fa-lg icon"></i
+                    ><span class="studentBtn" style="display: none">
+                      procvičit</span
+                    ></span
+                  ></a
+                ><br />
+                <a href="#">
+                  <div
+                    class="actionBtn btn btn-mic btn-block"
+                    style="margin-top: 5px; position: relative"
+                  >
+                    <i class="fas fa-lg fa-microphone text-danger"></i
+                    ><span
+                      style="
+                        font-weight: bold;
+                        font-size: 0.7em;
+                        position: absolute;
+                        padding-left: 1px;
+                        margin-top: -7px;
+                      "
+                      >0%</span
+                    >
+                  </div>
+                </a>
+              </td>
+            </tr>
+            <tr class="pTableRow" style="">
+              <td
+                style="text-align: left; padding-left:10px; vertical-align:middle; /*position: relative"
+              >
+                <div class="package-name-wrapper">
+                  <a class="intro-icon" href="#">
+                    <i
+                      class="fas fa-info-circle fa-2x text-success"
+                      style="float: left; padding-right: 5px"
+                    ></i
+                  ></a>
+                  <span class="package-name">Lekce 35/was für ein</span>
+                </div>
+              </td>
+              <td style="vertical-align: middle">
+                <b class="package-date"
+                  >31.05.<span class="time"> 22:00</span></b
+                >
+              </td>
+              <td style="vertical-align: middle; white-space: nowrap">
+                <div class="circles-wrapper">
+                  <i class="fa-solid fa-circle-check progress-icon"></i
+                  ><i class="fa-solid fa-circle-check progress-icon"></i
+                  ><i class="fa-solid fa-circle-check progress-icon"></i>
+                </div>
+              </td>
+              <td>
+                <a href="#"
+                  ><span
+                    class="actionBtn btn btn-primary btn-block"
+                    id="btnRun1776160"
+                    ><i class="fa-solid fa-gamepad fa-lg icon"></i
+                    ><span class="studentBtn" style="display: none">
+                      procvičit</span
+                    ></span
+                  ></a
+                ><br />
+                <a href="#">
+                  <div
+                    class="actionBtn btn btn-mic btn-block"
+                    style="margin-top: 5px; position: relative"
+                  >
+                    <i class="fas fa-lg fa-microphone text-danger"></i
+                    ><span
+                      style="
+                        font-weight: bold;
+                        font-size: 0.7em;
+                        position: absolute;
+                        padding-left: 1px;
+                        margin-top: -7px;
+                      "
+                      >0%</span
+                    >
+                  </div>
+                </a>
+              </td>
+            </tr>
+            <tr class="pTableRow" style="">
+              <td
+                style="text-align: left; padding-left:10px; vertical-align:middle; /*position: relative"
+              >
+                <div class="package-name-wrapper">
+                  <a class="intro-icon" href="#">
+                    <i
+                      class="fas fa-info-circle fa-2x text-success"
+                      style="float: left; padding-right: 5px"
+                    ></i
+                  ></a>
+                  <span class="package-name">Lekce 35/2</span>
+                </div>
+              </td>
+              <td style="vertical-align: middle">
+                <b class="package-date"
+                  >31.05.<span class="time"> 22:00</span></b
+                >
+              </td>
+              <td style="vertical-align: middle; white-space: nowrap">
+                <div class="circles-wrapper">
+                  <i class="fa-solid fa-circle-check progress-icon"></i
+                  ><i class="fa-solid fa-circle-check progress-icon"></i
+                  ><i class="fa-solid fa-circle-check progress-icon"></i>
+                </div>
+              </td>
+              <td>
+                <a
+                  href="#"
+                  ><span
+                    class="actionBtn btn btn-primary btn-block"
+                    id="btnRun1763293"
+                    ><i class="fa-solid fa-gamepad fa-lg icon"></i
+                    ><span class="studentBtn" style="display: none">
+                      procvičit</span
+                    ></span
+                  ></a
+                ><br />
+                <a href="#">
+                  <div
+                    class="actionBtn btn btn-mic btn-block"
+                    style="margin-top: 5px; position: relative"
+                  >
+                    <i class="fas fa-lg fa-microphone text-danger"></i
+                    ><span
+                      style="
+                        font-weight: bold;
+                        font-size: 0.7em;
+                        position: absolute;
+                        padding-left: 1px;
+                        margin-top: -7px;
+                      "
+                      >0%</span
+                    >
+                  </div>
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="form-group">
+          <a href="#"
+            ><button class="btn btn-lg btn-primary btn-block">
+              <i class="fa-solid fa-gamepad fa-lg icon leftIcon"></i> Procvičit
+              vícero balíků
+            </button></a
+          >
+        </div>
+        <!-- new element 21.9.2018 -->
+        <hr />
+        <div style="">
+          <div>
+            <h5 style="">Vysvětlivky:</h5>
+          </div>
+          <div class="row" id="buttonsHelp" style="margin-top: 30px">
+            <span class="col" style="margin-bottom: 10px"
+              ><span
+                class="btn btn-success btn-block disabled"
+                style="cursor: pointer"
+                ><i class="fas fa-play-circle fa-lg icon"></i> = Spustit
+              </span></span
+            >
+            <span class="col" style="margin-bottom: 10px"
+              ><span
+                class="btn btn-primary btn-block disabled"
+                style="cursor: pointer"
+                ><i class="fa-solid fa-gamepad fa-lg icon"></i> =
+                Procvičit</span
+              ></span
+            >
+            <span class="col" style=""
+              ><span
+                class="btn btn-mic btn-block disabled"
+                style="cursor: pointer"
+                ><i class="fas fa-microphone fa-lg icon"></i> = Výslovnost</span
+              ></span
+            >
+            <span class="col" style="">
+              <span
+                class="btn btn-block disabled"
+                style="cursor: pointer; border: 1px solid grey"
+              >
+                <i
+                  class="fa-regular fa-thumbs-up fa-lg text-warning fa-beat"
+                  style="cursor: initial; padding-left: 4px"
+                ></i>
+                = Balíček splněný v různé dny<br
+              /></span>
+            </span>
+          </div>
+          <hr style="height: 4px" />
+        </div>
+        <div class="form-group">
+          <button
+            class="btn btn-lg btn-wocagrey btn-block"
+            style="cursor: default; "
+          >
+            <i class="fas fa-trophy leftIcon"></i> Tvoje skóre:
+            <b>12975</b> WocaPoints
+          </button>
+        </div>
+        <br>
+        <br>
+        <br>
+      </div>
+    </div>
+  </body>
+</html>

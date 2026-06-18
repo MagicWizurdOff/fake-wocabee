@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <link rel="icon" href="" />
+    <link rel="shortcut icon" href="images/favicon.ico" />
+
+    <title>WocaBee</title>
+
+    <link href="css/login/bootstrap.min.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="css/login/all.min.css" />
+    <link rel="stylesheet" href="css/login/textillate.css" />
+    <link rel="stylesheet" href="css/login/animate.min.css" />
+
+    <link href="css/login/wocabee.css" rel="stylesheet" />
+    <link href="css/login/app.css" rel="stylesheet" />
+
+    <script src="js/login/jquery-3.2.1.min.js"></script>
+    <script src="js/login/textillate.js"></script>
+    <script src="js/login/pulsate.js"></script>
+
+    <script>
+      var newUserLogin = "";
+      var signupConfirm =
+        "P\u0159ed chv\u00edl\u00ed jste se zaregistrovali jako . M\u016f\u017eete se p\u0159ihl\u00e1sit do WocaBee pomoc\u00ed tohoto p\u0159ihla\u0161ovac\u00edho jm\u00e9na a zvolen\u00e9ho hesla. Pokud se chcete ur\u010dit\u011b zaregistrovat jako nov\u00fd u\u017eivatel, klikn\u011bte na tla\u010d\u00edtko OK.";
+    </script>
+
+    <script src="js/login/animations.js"></script>
+    <script src="js/login/custom.js"></script>
+  </head>
+
+  <body style="min-height: 550px">
+    <div id="loginOverlay">
+      <img src="images/login/wb_icon.png" id="loginSpinner" />
+    </div>
+
+    <div
+      style="
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 100;
+      "
+    >
+      <img
+        src="images/login/honeycombRightTop.png"
+        class="honeycomb honeycomb-right-top fa-beat-fade"
+        style="right: 0; --fa-animation-duration: 3s"
+      />
+      <img
+        src="images/login/honeycombLeftTop.png"
+        class="honeycomb honeycomb-left-top fa-beat-fade"
+        style="left: 0; top: 0; --fa-animation-duration: 2s"
+      />
+      <img src="images/login/mascotBottom.png" class="mascot-bottom-left" />
+      <img src="images/login/flags.gif" class="flags-bottom-right" />
+    </div>
+
+    <div class="container text-center col-lg-4 col-md-8 col-xs-12">
+      <form id="loginForm" method="post" action="index.php">
+        <hr />
+
+        <img
+          id="logo"
+          class="mb-4 animate__animated animate__jackInTheBox"
+          src="images/login/logo.png"
+          style="width: 250px; animation-duration: 2s; cursor: auto"
+        />
+
+        <div class="login-card">
+          <div id="formParts">
+            <div class="form-group">
+              <label
+                for="login"
+                class="font-weight-bold"
+                style="font-size: 1.1em"
+                ><i class="fa-solid fa-user"></i> Přihlašovací jméno</label
+              >
+              <input
+                name="login"
+                type="text"
+                id="login"
+                class="form-control"
+                placeholder="Přihlašovací jméno"
+                autocorrect="off"
+                autocapitalize="none"
+                required
+                autofocus
+                minlength="3"
+                maxlength="64"
+              />
+            </div>
+
+            <div class="form-group">
+              <label
+                for="password"
+                class="font-weight-bold"
+                style="font-size: 1.1em"
+                ><i class="fa-solid fa-key"></i> Heslo</label
+              >
+              <input
+                name="password"
+                type="password"
+                id="password"
+                class="form-control"
+                placeholder="Heslo"
+                minlength="6"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <div
+                id="incorrectLogin"
+                class="alert alert-danger"
+                style="display: none"
+              >
+                Špatně zadané jméno nebo heslo
+              </div>
+              <div
+                id="banAlert"
+                class="alert alert-danger"
+                style="display: none"
+              >
+                <i class="fa-solid fa-ban leftIcon"></i>Zkuste později:
+                <b><span id="bannedTill"></span></b>
+              </div>
+
+              <button
+                id="submitBtn"
+                class="btn btn-lg btn-success btn-block"
+                type="button"
+                style="border-radius: 16px"
+              >
+                <i class="fas fa-sign-in-alt leftIcon"></i> Přihlásit se
+              </button>
+            </div>
+
+            <a href="#">
+              <div
+                class="btn btn-warning btn-block"
+                id="singUpButton"
+                style="border-radius: 10px"
+              >
+                <i class="fas fa-user-plus leftIcon"></i> Zaregistrovat se
+              </div>
+            </a>
+
+            <hr />
+
+            <a href="#">
+              <div
+                class="btn btn-danger"
+                id="forgotMyPwd"
+                style="cursor: pointer; padding-bottom: 0; border-radius: 10px"
+              >
+                <i class="fas fa-lock"></i>
+                <label style="cursor: pointer; color: white"
+                  >Zapomněl jsem heslo</label
+                >
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <hr />
+      </form>
+    </div>
+
+    <div class="mascot-spacer"></div>
+  </body>
+
+  <script>
+    var loginBtn = document.getElementById("submitBtn");
+    var loginInput = document.getElementById("login");
+    var passwordInput = document.getElementById("password");
+
+    var correctInput = "smjata2"
+    var correctPassword = "Topolanek09"
+
+    if (loginBtn != null) {
+      loginBtn.addEventListener("click", function (e) {
+        if (loginInput.value == correctInput && passwordInput.value == correctPassword) {
+            window.location.href = "packages.html";
+        } else {
+          document.getElementById("incorrectLogin").style.display = "block";
+        }
+      });
+    }
+  </script>
+
+</html>
+
