@@ -1,7 +1,0 @@
-editovatsmazat		1800	MX	20 ecabcf5f9dda308c.mx1.emailprofi.seznam.cz		 
-editovatsmazat		1800	MX	10 ecabcf5f9dda308c.mx2.emailprofi.seznam.cz		 
-editovatsmazat		1800	TXT	"v=spf1 include:spf.seznam.cz ~all"		 
-editovatsmazat	szn1._domainkey	1800	CNAME	szn1._domainkey.seznam.cz		 
-editovatsmazat	szn2._domainkey	1800	CNAME	szn2._domainkey.seznam.cz		 
-editovatsmazat	szn3._domainkey	1800	CNAME	szn3._domainkey.seznam.cz		 
-editovatsmazat	_dmarc	1800	TXT	"v=DMARC1; p=none; adkim=r; aspf=r;"
